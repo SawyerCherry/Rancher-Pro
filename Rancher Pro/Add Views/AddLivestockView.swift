@@ -18,7 +18,7 @@ struct AddLivestockView: View {
     @State var tagText: String = ""
     @State var birthText: String = ""
     @State var weightText: String = ""
-    @State var investmentText: String = ""
+    @State var investmentText: Double = 0.00
     
     
     @FetchRequest(
@@ -116,15 +116,17 @@ struct AddLivestockView: View {
                     HStack {
                         Text("Amount Invested")
                         Spacer()
-                        TextField("enter", text: $investmentText)
+                        TextField("enter", value: $investmentText, format: .number)
                             .fixedSize()
+                                      
                     }.padding(.horizontal, 75)
                     
                     Divider()
                         .padding(.horizontal, 50)
                     
                     Button {
-                        PersistenceController.shared.addLivestock(species: selectedSpecies, sex: selectedSex, birthYear: birthText, breed: breedText, tagNumber: tagText, amountInvested: investmentText, into: selectedHerd!)
+                        // Running this line of code crashes the project
+//                        PersistenceController.shared.addLivestock(species: selectedSpecies, sex: selectedSex, birthYear: birthText, breed: breedText, tagNumber: tagText, amountInvested: investmentText, into: selectedHerd!)
                         presentationMode.wrappedValue.dismiss()
                     } label: {
                         Text("Save")

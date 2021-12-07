@@ -11,7 +11,7 @@
         <relationship name="livestockInHerd" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Livestock" inverseName="herd" inverseEntity="Livestock"/>
     </entity>
     <entity name="Livestock" representedClassName="Livestock" syncable="YES" codeGenerationType="class">
-        <attribute name="amountInvested" optional="YES" attributeType="String"/>
+        <attribute name="amountInvested" optional="YES" attributeType="Double" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="birthYear" optional="YES" attributeType="String"/>
         <attribute name="breed" optional="YES" attributeType="String"/>
         <attribute name="sex" optional="YES" attributeType="String"/>

@@ -71,7 +71,7 @@ struct AddHerdView: View {
                 }//:VSTACK
                 .navigationTitle("Add A Herd")
                 .padding()
-                .background(Color.accentColor)
+                
 
                 
                 
