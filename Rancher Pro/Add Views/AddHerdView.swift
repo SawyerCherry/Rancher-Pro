@@ -21,9 +21,13 @@ struct AddHerdView: View {
     
     private var items: FetchedResults<Farm>
     
-    @State var selectedFarm: Farm?
-    
-    
+   
+    @State var selectedFarm: Farm
+        
+        init() {
+            let firstFarm = PersistenceController.shared.firstFarms()!
+            self._selectedFarm = State(wrappedValue: firstFarm)
+        }
     
     var body: some View {
         NavigationView {
@@ -42,9 +46,9 @@ struct AddHerdView: View {
                         Picker("choose a farm", selection: $selectedFarm) {
                             ForEach(items) { farms in
                                 Text(farms.name!.capitalized)
-                                    .tag(farms as Farm?)
+                                    .tag(farms as Farm)
                             }
-                        }.disabled(selectedFarm == nil)
+                        }
                     }//:STACK
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                    
@@ -52,7 +56,7 @@ struct AddHerdView: View {
                     HStack {
                         Spacer()
                         Button {
-                            PersistenceController.shared.addHerd(name: herdText, into: selectedFarm!)
+                            PersistenceController.shared.addHerd(name: herdText, into: selectedFarm)
                             presentationMode.wrappedValue.dismiss()
                         } label: {
                             Text("Save")
@@ -71,9 +75,6 @@ struct AddHerdView: View {
                 }//:VSTACK
                 .navigationTitle("Add A Herd")
                 .padding()
-                
-
-                
                 
                 Spacer()
             }

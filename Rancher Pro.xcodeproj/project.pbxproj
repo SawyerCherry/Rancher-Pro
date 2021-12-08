@@ -71,6 +71,8 @@
 		F22A7197275AB1E300B828BE /* Ice Box */ = {
 			isa = PBXGroup;
 			children = (
+				F24E7F4E2756CB6100CD0A5F /* Utilities */,
+				F2FD9DF9271E4BBB00D1F2E4 /* HomeView.swift */,
 				F24E7F452756CA1900CD0A5F /* AddFarmhandView.swift */,
 				F2FB08BF27554ED900683A15 /* ProfileView.swift */,
 			);
@@ -101,7 +103,6 @@
 			isa = PBXGroup;
 			children = (
 				F2FB08DA2755AA8200683A15 /* DetailView.swift */,
-				F2FD9DF9271E4BBB00D1F2E4 /* HomeView.swift */,
 				F2FB08D82755AA0200683A15 /* AddView.swift */,
 				F2FD9DF7271E4BBB00D1F2E4 /* Rancher_ProApp.swift */,
 			);
@@ -114,13 +115,6 @@
 				F2FB08D62755A7F300683A15 /* HelperFunctions.swift */,
 			);
 			path = Utilities;
-			sourceTree = "<group>";
-		};
-		F24E7F4F27571A8800CD0A5F /* Buttons */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Buttons;
 			sourceTree = "<group>";
 		};
 		F2FB08C627556D0B00683A15 /* Models */ = {
@@ -156,8 +150,6 @@
 			isa = PBXGroup;
 			children = (
 				F22A7197275AB1E300B828BE /* Ice Box */,
-				F24E7F4F27571A8800CD0A5F /* Buttons */,
-				F24E7F4E2756CB6100CD0A5F /* Utilities */,
 				F24E7F4D2756CB1600CD0A5F /* Main Views */,
 				F24E7F492756CA5800CD0A5F /* Add Views */,
 				F24E7F4A2756CAAB00CD0A5F /* Sub Views */,

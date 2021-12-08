@@ -29,6 +29,12 @@ struct AddLivestockView: View {
     
     @State var selectedHerd: Herd?
     
+//    init() {
+//        let firstHerd = PersistenceController.shared.firstFarms()!
+//        self._selectedFarm = State(wrappedValue: firstFarm)
+//    }
+    
+    
     
     var body: some View {
         NavigationView {

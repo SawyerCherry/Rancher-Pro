@@ -24,7 +24,7 @@ struct DetailView: View {
                 
                 ForEach(items){ farm in
                     VStack {
-                        Text(farm.name!)
+                        Text("Farm Name: \(farm.name!)")
                         Text("Number of herds: \(farm.getHerdsOnFarm.count)")
                         NavigationLink("Details", destination: FarmDetailView(farm: farm))
                     }
@@ -53,13 +53,13 @@ struct FarmDetailView: View {
     
     var body: some View {
         VStack {
-            Text(farm.name!)
-            Text(farm.address!)
+            Text("Farm Name: \(farm.name!)")
+            Text("Farm Address: \(farm.address!)")
             
             List {
                 ForEach(farm.getHerdsOnFarm){ herd in
                     Text(herd.name!)
-                    Text("Livestock size: \(herd.getLivestockOnFarm.count)")
+                    Text("Livestock Count in Herd: \(herd.getLivestockOnFarm.count)")
                 }
             }
         }

@@ -19,12 +19,12 @@ struct Rancher_ProApp: App {
                         Text("Add")
                     }.tag(1)
                     .foregroundColor(.black)
-                HomeView()
-                    .tabItem {
-                        Image(systemName: "house.circle")
-                        Text("Home")
-                    }.tag(1)
-                    
+                //                HomeView()
+                //                    .tabItem {
+                //                        Image(systemName: "house.circle")
+                //                        Text("Home")
+                //                    }.tag(1)
+                
                 DetailView()
                     .tabItem {
                         Image(systemName: "doc.text.image.fill")
@@ -33,7 +33,7 @@ struct Rancher_ProApp: App {
             }
             
             .environment(\.managedObjectContext, persistenceController.container.viewContext)
-         
+            
             
         }
         
@@ -47,9 +47,9 @@ import CoreData
 
 struct PersistenceController {
     static let shared = PersistenceController()
-
+    
     let container: NSPersistentContainer
-
+    
     init(inMemory: Bool = false) {
         container = NSPersistentContainer(name: "DataModel")
         if inMemory {
@@ -57,8 +57,8 @@ struct PersistenceController {
         }
         container.loadPersistentStores(completionHandler: { (storeDescription, error) in
             if let error = error as NSError? {
-               
-            
+                
+                
                 fatalError("Unresolved error \(error), \(error.userInfo)")
             }
         })
@@ -69,8 +69,8 @@ struct PersistenceController {
             let newFarm = Farm(context: container.viewContext)
             newFarm.name = name
             newFarm.address = address
-          
-
+            
+            
             do {
                 try container.viewContext.save()
             } catch {
@@ -87,7 +87,7 @@ struct PersistenceController {
             let newHerd = Herd(context: container.viewContext)
             newHerd.name = name
             farm.addToHerdsOnFarm(newHerd)
-          
+            
             do {
                 try container.viewContext.save()
             } catch {
@@ -99,18 +99,41 @@ struct PersistenceController {
         }
     }
     
-//    func addLivestock(species: Species, sex: Sex, birthYear: String, breed: String, tagNumber: String, amountInvested: String, into herd: Herd) {
-//        withAnimation {
-//            let newAnimal = Livestock(context: container.viewContext)
-//            newAnimal.species = "\(species)"
-//            newAnimal.amountInvested = amountInvested
-//            newAnimal.sex = "\(sex)"
-//            newAnimal.birthYear = birthYear
-//            newAnimal.breed = breed
-//            newAnimal.tagNumber = tagNumber
-//            herd.addToLivestockInHerd(newAnimal)
-//            
-//        }
-//        
-//    }
+    //    func addLivestock(species: Species, sex: Sex, birthYear: String, breed: String, tagNumber: String, amountInvested: String, into herd: Herd) {
+    //        withAnimation {
+    //            let newAnimal = Livestock(context: container.viewContext)
+    //            newAnimal.species = "\(species)"
+    //            newAnimal.amountInvested = amountInvested
+    //            newAnimal.sex = "\(sex)"
+    //            newAnimal.birthYear = birthYear
+    //            newAnimal.breed = breed
+    //            newAnimal.tagNumber = tagNumber
+    //            herd.addToLivestockInHerd(newAnimal)
+    //
+    //        }
+    //
+    //    }
+    
+    func firstFarms() -> Farm? {
+        let fetch = Farm.fetchRequest()
+        fetch.sortDescriptors = [NSSortDescriptor(keyPath: \Farm.name, ascending: false)]
+        fetch.fetchLimit = 1
+        guard let result = try? container.viewContext.fetch(fetch).first else {
+            return nil
+        }
+        
+        return result
+    }
+    
+    func firstHerds() -> Herd? {
+        let fetch = Herd.fetchRequest()
+        fetch.sortDescriptors = [NSSortDescriptor(keyPath: \Herd.name, ascending: false)]
+        fetch.fetchLimit = 1
+        guard let result = try? container.viewContext.fetch(fetch).first else {
+            return nil
+        }
+        
+        return result
+    }
+    
 }
