@@ -27,12 +27,13 @@ struct AddLivestockView: View {
     
     private var items: FetchedResults<Herd>
     
-    @State var selectedHerd: Herd?
+    @State var selectedHerd: Herd
     
-//    init() {
-//        let firstHerd = PersistenceController.shared.firstFarms()!
-//        self._selectedFarm = State(wrappedValue: firstFarm)
-//    }
+    
+    init() {
+        let firstHerd = PersistenceController.shared.firstHerds()!
+        self._selectedHerd = State(wrappedValue: firstHerd)
+    }
     
     
     
@@ -132,7 +133,7 @@ struct AddLivestockView: View {
                     
                     Button {
                         // Running this line of code crashes the project
-//                        PersistenceController.shared.addLivestock(species: selectedSpecies, sex: selectedSex, birthYear: birthText, breed: breedText, tagNumber: tagText, amountInvested: investmentText, into: selectedHerd!)
+                        PersistenceController.shared.addLivestock(species: selectedSpecies, sex: selectedSex, birthYear: birthText, breed: breedText, tagNumber: tagText, amountInvested: investmentText, into: selectedHerd)
                         presentationMode.wrappedValue.dismiss()
                     } label: {
                         Text("Save")

@@ -28,7 +28,7 @@ struct AddView: View {
                 
                 NavigationLink("Add Livestock", destination: AddLivestockView())
                 
-                NavigationLink("Add Task", destination: AddTaskView())
+                // NavigationLink("Add Task", destination: AddTaskView())
                 
                 
             }.navigationTitle("Add")

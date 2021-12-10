@@ -75,6 +75,7 @@
 				F2FD9DF9271E4BBB00D1F2E4 /* HomeView.swift */,
 				F24E7F452756CA1900CD0A5F /* AddFarmhandView.swift */,
 				F2FB08BF27554ED900683A15 /* ProfileView.swift */,
+				F24E7F472756CA3000CD0A5F /* AddTaskView.swift */,
 			);
 			path = "Ice Box";
 			sourceTree = "<group>";
@@ -85,7 +86,6 @@
 				F24E7F412756C9F700CD0A5F /* AddFarmView.swift */,
 				F24E7F432756CA0700CD0A5F /* AddHerdView.swift */,
 				F24E7F3F2756975200CD0A5F /* AddLivestockView.swift */,
-				F24E7F472756CA3000CD0A5F /* AddTaskView.swift */,
 			);
 			path = "Add Views";
 			sourceTree = "<group>";

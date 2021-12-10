@@ -99,20 +99,18 @@ struct PersistenceController {
         }
     }
     
-    //    func addLivestock(species: Species, sex: Sex, birthYear: String, breed: String, tagNumber: String, amountInvested: String, into herd: Herd) {
-    //        withAnimation {
-    //            let newAnimal = Livestock(context: container.viewContext)
-    //            newAnimal.species = "\(species)"
-    //            newAnimal.amountInvested = amountInvested
-    //            newAnimal.sex = "\(sex)"
-    //            newAnimal.birthYear = birthYear
-    //            newAnimal.breed = breed
-    //            newAnimal.tagNumber = tagNumber
-    //            herd.addToLivestockInHerd(newAnimal)
-    //
-    //        }
-    //
-    //    }
+    func addLivestock(species: Species, sex: Sex, birthYear: String, breed: String, tagNumber: String, amountInvested: Double, into herd: Herd) {
+        withAnimation {
+            let newAnimal = Livestock(context: container.viewContext)
+            newAnimal.species = "\(species)"
+            newAnimal.amountInvested = amountInvested
+            newAnimal.sex = "\(sex)"
+            newAnimal.birthYear = birthYear
+            newAnimal.breed = breed
+            newAnimal.tagNumber = tagNumber
+            herd.addToLivestockInHerd(newAnimal)
+        }
+    }
     
     func firstFarms() -> Farm? {
         let fetch = Farm.fetchRequest()
@@ -132,7 +130,6 @@ struct PersistenceController {
         guard let result = try? container.viewContext.fetch(fetch).first else {
             return nil
         }
-        
         return result
     }
     

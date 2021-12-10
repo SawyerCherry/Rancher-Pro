@@ -52,16 +52,26 @@ struct FarmDetailView: View {
     @ObservedObject var farm: Farm
     
     var body: some View {
-        VStack {
-            Text("Farm Name: \(farm.name!)")
-            Text("Farm Address: \(farm.address!)")
-            
+        NavigationView {
             List {
-                ForEach(farm.getHerdsOnFarm){ herd in
-                    Text(herd.name!)
-                    Text("Livestock Count in Herd: \(herd.getLivestockOnFarm.count)")
+                ForEach(farm.getHerdsOnFarm){ herds in
+                    VStack {
+                        Text("Herd Name: \(farm.name!)")
+                        Text("Livestock count in Herd: \(farm.getHerdsOnFarm.count)")
+                        NavigationLink("Livestock Detals", destination: HerdDetailView(herd: herd))
+                    }
                 }
             }
+//            Text("Farm Name: \(farm.name!)")
+//            Text("Farm Address: \(farm.address!)")
+//
+//            List {
+//
+//                ForEach(farm.getHerdsOnFarm){ herd in
+//                    Text(herd.name!)
+//                    Text("Livestock Count in Herd: \(herd.getLivestockOnFarm.count)")
+//                }
+//            }
         }
     }
 }
@@ -69,5 +79,26 @@ struct FarmDetailView: View {
 struct DetailView_Previews: PreviewProvider {
     static var previews: some View {
         DetailView()
+    }
+}
+
+
+struct HerdDetailView: View {
+    
+    @ObservedObject var herd: Herd
+    
+    var body: some View {
+        NavigationView {
+            List {
+                ForEach(herd.getLivestockOnFarm){ livestock in
+                    VStack {
+                        Text("Tag Number: \(livestock.tagNumber!)")
+                        Text("Number of herds: \(livestock.amountInvested)")
+                    }
+                }
+            }
+            .navigationTitle("Herd Details")
+            
+        }
     }
 }
