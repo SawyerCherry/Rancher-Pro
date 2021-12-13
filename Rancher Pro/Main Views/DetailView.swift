@@ -9,8 +9,8 @@ import SwiftUI
 import CoreData
 
 struct DetailView: View {
-//    let farms = PersistenceController.shared.farms
-//    @FetchedResult() var farms
+    //    let farms = PersistenceController.shared.farms
+    //    @FetchedResult() var farms
     
     @FetchRequest(
         sortDescriptors: [NSSortDescriptor(keyPath: \Farm.name, ascending: false)],
@@ -52,23 +52,22 @@ struct FarmDetailView: View {
     @ObservedObject var farm: Farm
     
     var body: some View {
-        NavigationView {
-            List {
-                ForEach(farm.getHerdsOnFarm){ herds in
-                    VStack {
-                        Text("Herd Name: \(herds.name!)")
-                        Text("Livestock count in Herd: \(farm.getHerdsOnFarm.count)")
-                        NavigationLink("Herd Details", destination: HerdDetailView(herd: herds))
-                    }
+        
+        List {
+            ForEach(farm.getHerdsOnFarm){ herd in
+                VStack {
+                    Text("Herd Name: \(herd.name!)")
+                    Text("Livestock count in Herd: \(herd.getLivestockOnFarm.count)")
+                    NavigationLink("Herd Details", destination: HerdDetailView(herd: herd))
                 }
             }
         }
     }
 }
 struct HerdDetailView: View {
-
+    
     @ObservedObject var herd: Herd
-
+    
     var body: some View {
         List {
             ForEach(herd.getLivestockOnFarm) { livestock in
@@ -77,23 +76,24 @@ struct HerdDetailView: View {
                         Text("Livestock Species: \(livestock.species!)")
                         Text("Tag Number: \(livestock.tagNumber!)")
                     }
-//                    NavigationLink("Livestock Details", destination: LivestockDetailView(livestock: livestock))
+                    NavigationLink("Livestock Details", destination: LivestockDetailView(livestock: livestock))
                 }
             }
-        } 
+        }
     }
 }
 
-//struct LivestockDetailView: View {
-//    var livestock: Livestock
-//    var body: some View {
-//        ForEach(livestock) { animal in
-//            Text("Amount invested: $\(animal.amountInvested)")
-//            Text("Tag number: \(animal.tagNumber!)")
-//            Text("Species: \(animal.species!)")
-//            Text("Sex of animal: \(livestock.sex!)")
-//            Text("Breed: \(animal.breed!)")
-//            Text("Birth Year: \(animal.birthYear!)")
-//        }
-//    }
-//}
+struct LivestockDetailView: View {
+    @ObservedObject var livestock: Livestock
+    
+    var body: some View {
+        List {
+            Text("Amount invested: $\(livestock.amountInvested)")
+            Text("Tag number: \(livestock.tagNumber!)")
+            Text("Species: \(livestock.species!)")
+            Text("Sex of animal: \(livestock.sex!)")
+            Text("Breed: \(livestock.breed!)")
+            Text("Birth Year: \(livestock.birthYear!)")
+        }
+    }
+}

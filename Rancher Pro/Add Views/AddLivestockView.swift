@@ -58,6 +58,7 @@ struct AddLivestockView: View {
                         ForEach(Species.allCases) { species in
                             Text(species.rawValue.capitalized)
                                 .foregroundColor(Color.brown)
+                                .tag(species)
                         }
                     }
                     .pickerStyle(.menu)
@@ -71,6 +72,7 @@ struct AddLivestockView: View {
                     Picker("Sex", selection: $selectedSex) {
                         ForEach(Sex.allCases) { sexes in
                             Text(sexes.rawValue.capitalized)
+                                .tag(sexes)
                         }
                     }
                 }.padding(.horizontal, 75)

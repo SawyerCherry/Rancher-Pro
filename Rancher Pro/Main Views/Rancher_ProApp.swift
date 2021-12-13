@@ -70,15 +70,7 @@ struct PersistenceController {
             newFarm.name = name
             newFarm.address = address
             
-            
-            do {
-                try container.viewContext.save()
-            } catch {
-                // Replace this implementation with code to handle the error appropriately.
-                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-                let nsError = error as NSError
-                fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
-            }
+            save()
         }
     }
     
@@ -88,14 +80,7 @@ struct PersistenceController {
             newHerd.name = name
             farm.addToHerdsOnFarm(newHerd)
             
-            do {
-                try container.viewContext.save()
-            } catch {
-                // Replace this implementation with code to handle the error appropriately.
-                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-                let nsError = error as NSError
-                fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
-            }
+            save()
         }
     }
     
@@ -109,6 +94,8 @@ struct PersistenceController {
             newAnimal.breed = breed
             newAnimal.tagNumber = tagNumber
             herd.addToLivestockInHerd(newAnimal)
+            
+            save()
         }
     }
     
@@ -131,6 +118,15 @@ struct PersistenceController {
             return nil
         }
         return result
+    }
+    
+    private func save() {
+        do {
+            try container.viewContext.save()
+        } catch {
+            let nsError = error as NSError
+            fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
+        }
     }
     
 }
