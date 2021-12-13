@@ -46,6 +46,7 @@ struct AddLivestockView: View {
                     Picker("Herds", selection: $selectedHerd) {
                         ForEach(items) { herd in
                             Text(herd.name!)
+                                .tag(herd as Herd)
                         }
                     }
                     

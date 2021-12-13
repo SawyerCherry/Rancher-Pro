@@ -56,49 +56,44 @@ struct FarmDetailView: View {
             List {
                 ForEach(farm.getHerdsOnFarm){ herds in
                     VStack {
-                        Text("Herd Name: \(farm.name!)")
+                        Text("Herd Name: \(herds.name!)")
                         Text("Livestock count in Herd: \(farm.getHerdsOnFarm.count)")
-                        NavigationLink("Livestock Detals", destination: HerdDetailView(herd: herd))
+                        NavigationLink("Herd Details", destination: HerdDetailView(herd: herds))
                     }
                 }
             }
-//            Text("Farm Name: \(farm.name!)")
-//            Text("Farm Address: \(farm.address!)")
-//
-//            List {
-//
-//                ForEach(farm.getHerdsOnFarm){ herd in
-//                    Text(herd.name!)
-//                    Text("Livestock Count in Herd: \(herd.getLivestockOnFarm.count)")
-//                }
-//            }
         }
     }
 }
-
-struct DetailView_Previews: PreviewProvider {
-    static var previews: some View {
-        DetailView()
-    }
-}
-
-
 struct HerdDetailView: View {
-    
+
     @ObservedObject var herd: Herd
-    
+
     var body: some View {
-        NavigationView {
-            List {
-                ForEach(herd.getLivestockOnFarm){ livestock in
-                    VStack {
+        List {
+            ForEach(herd.getLivestockOnFarm) { livestock in
+                VStack {
+                    HStack {
+                        Text("Livestock Species: \(livestock.species!)")
                         Text("Tag Number: \(livestock.tagNumber!)")
-                        Text("Number of herds: \(livestock.amountInvested)")
                     }
+//                    NavigationLink("Livestock Details", destination: LivestockDetailView(livestock: livestock))
                 }
             }
-            .navigationTitle("Herd Details")
-            
-        }
+        } 
     }
 }
+
+//struct LivestockDetailView: View {
+//    var livestock: Livestock
+//    var body: some View {
+//        ForEach(livestock) { animal in
+//            Text("Amount invested: $\(animal.amountInvested)")
+//            Text("Tag number: \(animal.tagNumber!)")
+//            Text("Species: \(animal.species!)")
+//            Text("Sex of animal: \(livestock.sex!)")
+//            Text("Breed: \(animal.breed!)")
+//            Text("Birth Year: \(animal.birthYear!)")
+//        }
+//    }
+//}

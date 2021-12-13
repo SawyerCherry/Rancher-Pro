@@ -40,7 +40,6 @@ struct AddHerdView: View {
                     }//:STACK
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                     
-                    
                     HStack(alignment:.center, spacing: 50) {
                         Text("Herd Location:")
                         Picker("choose a farm", selection: $selectedFarm) {
@@ -51,7 +50,6 @@ struct AddHerdView: View {
                         }
                     }//:STACK
                     .textFieldStyle(RoundedBorderTextFieldStyle())
-                   
 
                     HStack {
                         Spacer()
