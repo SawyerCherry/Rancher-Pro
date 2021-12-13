@@ -64,6 +64,11 @@ struct PersistenceController {
         })
     }
     
+    func numberOfFarms() -> Int {
+        let fetch = Farm.fetchRequest()
+        return (try? container.viewContext.fetch(fetch).count) ?? 0
+    }
+    
     func addFarm(name: String, address: String) {
         withAnimation {
             let newFarm = Farm(context: container.viewContext)
@@ -72,6 +77,11 @@ struct PersistenceController {
             
             save()
         }
+    }
+    
+    func numberOfHerds() -> Int {
+        let fetch = Herd.fetchRequest()
+        return (try? container.viewContext.fetch(fetch).count) ?? 0
     }
     
     func addHerd(name: String, into farm: Farm) {

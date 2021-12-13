@@ -27,15 +27,7 @@ struct AddLivestockView: View {
     
     private var items: FetchedResults<Herd>
     
-    @State var selectedHerd: Herd
-    
-    
-    init() {
-        let firstHerd = PersistenceController.shared.firstHerds()!
-        self._selectedHerd = State(wrappedValue: firstHerd)
-    }
-    
-    
+    @State var selectedHerd: Herd!
     
     var body: some View {
         NavigationView {
@@ -46,11 +38,11 @@ struct AddLivestockView: View {
                     Picker("Herds", selection: $selectedHerd) {
                         ForEach(items) { herd in
                             Text(herd.name!)
-                                .tag(herd as Herd)
+                                .tag(herd as Herd?)
                         }
                     }
                     
-                }
+                }.padding(.horizontal, 75)
                 HStack {
                     Text("Species")
                     Spacer()
@@ -155,6 +147,10 @@ struct AddLivestockView: View {
             }.navigationTitle("Add Livestock")
         }
     
+        .onAppear {
+            let firstHerd = PersistenceController.shared.firstHerds()!
+            self.selectedHerd = firstHerd
+        }
     }
 }
 

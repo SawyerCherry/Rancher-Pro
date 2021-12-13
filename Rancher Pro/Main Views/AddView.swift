@@ -7,6 +7,29 @@
 
 import SwiftUI
 
+import CoreData
+
+class AddViewModel: ObservableObject {
+    @Published var numberOfFarms: Int
+    @Published var numberOfHerds: Int
+    
+    var notificationToken: NSObjectProtocol!
+    
+    init() {
+        self.numberOfFarms = PersistenceController.shared.numberOfFarms()
+        self.numberOfHerds = PersistenceController.shared.numberOfHerds()
+        
+        notificationToken = NotificationCenter.default.addObserver(
+            forName: NSManagedObjectContext.didChangeObjectsNotification,
+            object: nil,
+            queue: .main
+        ) { _ in
+            self.numberOfFarms = PersistenceController.shared.numberOfFarms()
+            self.numberOfHerds = PersistenceController.shared.numberOfHerds()
+        }
+    }
+}
+
 struct AddView: View {
     //: MARK: - Properties
     
@@ -16,6 +39,7 @@ struct AddView: View {
     @State private var addHand: Bool = false
     @State private var addTask: Bool = false
     
+    @StateObject var model = AddViewModel()
     
     var body: some View {
         
@@ -25,8 +49,10 @@ struct AddView: View {
                 NavigationLink("Add Farm", destination: AddFarmView())
                     
                 NavigationLink("Add Herd", destination: AddHerdView())
+                    .disabled(model.numberOfFarms == 0)
                 
                 NavigationLink("Add Livestock", destination: AddLivestockView())
+                    .disabled(model.numberOfHerds == 0)
                 
                 // NavigationLink("Add Task", destination: AddTaskView())
                 
