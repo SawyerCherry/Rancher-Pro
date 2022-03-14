@@ -14,6 +14,8 @@
 		F24E7F462756CA1900CD0A5F /* AddFarmhandView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F24E7F452756CA1900CD0A5F /* AddFarmhandView.swift */; };
 		F24E7F482756CA3000CD0A5F /* AddTaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F24E7F472756CA3000CD0A5F /* AddTaskView.swift */; };
 		F24F7B2A275971CD00E4B221 /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F24F7B28275971CD00E4B221 /* DataModel.xcdatamodeld */; };
+		F2FA469A27DFFD920014431F /* LivestockDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FA469927DFFD910014431F /* LivestockDetailView.swift */; };
+		F2FA469D27DFFE1D0014431F /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FA469C27DFFE1D0014431F /* CoreDataManager.swift */; };
 		F2FB08C027554ED900683A15 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FB08BF27554ED900683A15 /* ProfileView.swift */; };
 		F2FB08C52755656000683A15 /* Cards.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FB08C42755656000683A15 /* Cards.swift */; };
 		F2FB08C827556D2200683A15 /* RanchHandModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FB08C727556D2200683A15 /* RanchHandModel.swift */; };
@@ -24,7 +26,7 @@
 		F2FB08D32755A54F00683A15 /* TaskModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FB08D22755A54F00683A15 /* TaskModel.swift */; };
 		F2FB08D72755A7F300683A15 /* HelperFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FB08D62755A7F300683A15 /* HelperFunctions.swift */; };
 		F2FB08D92755AA0200683A15 /* AddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FB08D82755AA0200683A15 /* AddView.swift */; };
-		F2FB08DB2755AA8200683A15 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FB08DA2755AA8200683A15 /* DetailView.swift */; };
+		F2FB08DB2755AA8200683A15 /* AllFarmsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FB08DA2755AA8200683A15 /* AllFarmsView.swift */; };
 		F2FD9DF8271E4BBB00D1F2E4 /* Rancher_ProApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FD9DF7271E4BBB00D1F2E4 /* Rancher_ProApp.swift */; };
 		F2FD9DFA271E4BBB00D1F2E4 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FD9DF9271E4BBB00D1F2E4 /* HomeView.swift */; };
 		F2FD9DFC271E4BBD00D1F2E4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F2FD9DFB271E4BBD00D1F2E4 /* Assets.xcassets */; };
@@ -39,6 +41,8 @@
 		F24E7F452756CA1900CD0A5F /* AddFarmhandView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFarmhandView.swift; sourceTree = "<group>"; };
 		F24E7F472756CA3000CD0A5F /* AddTaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTaskView.swift; sourceTree = "<group>"; };
 		F24F7B29275971CD00E4B221 /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
+		F2FA469927DFFD910014431F /* LivestockDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LivestockDetailView.swift; sourceTree = "<group>"; };
+		F2FA469C27DFFE1D0014431F /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		F2FB08BF27554ED900683A15 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		F2FB08C42755656000683A15 /* Cards.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cards.swift; sourceTree = "<group>"; };
 		F2FB08C727556D2200683A15 /* RanchHandModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RanchHandModel.swift; sourceTree = "<group>"; };
@@ -49,7 +53,7 @@
 		F2FB08D22755A54F00683A15 /* TaskModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskModel.swift; sourceTree = "<group>"; };
 		F2FB08D62755A7F300683A15 /* HelperFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelperFunctions.swift; sourceTree = "<group>"; };
 		F2FB08D82755AA0200683A15 /* AddView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddView.swift; sourceTree = "<group>"; };
-		F2FB08DA2755AA8200683A15 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
+		F2FB08DA2755AA8200683A15 /* AllFarmsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllFarmsView.swift; sourceTree = "<group>"; };
 		F2FD9DF4271E4BBB00D1F2E4 /* Rancher Pro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Rancher Pro.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F2FD9DF7271E4BBB00D1F2E4 /* Rancher_ProApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rancher_ProApp.swift; sourceTree = "<group>"; };
 		F2FD9DF9271E4BBB00D1F2E4 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -102,8 +106,9 @@
 		F24E7F4D2756CB1600CD0A5F /* Main Views */ = {
 			isa = PBXGroup;
 			children = (
-				F2FB08DA2755AA8200683A15 /* DetailView.swift */,
+				F2FB08DA2755AA8200683A15 /* AllFarmsView.swift */,
 				F2FB08D82755AA0200683A15 /* AddView.swift */,
+				F2FA469927DFFD910014431F /* LivestockDetailView.swift */,
 				F2FD9DF7271E4BBB00D1F2E4 /* Rancher_ProApp.swift */,
 			);
 			path = "Main Views";
@@ -115,6 +120,15 @@
 				F2FB08D62755A7F300683A15 /* HelperFunctions.swift */,
 			);
 			path = Utilities;
+			sourceTree = "<group>";
+		};
+		F2FA469B27DFFE0A0014431F /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				F2FA469C27DFFE1D0014431F /* CoreDataManager.swift */,
+				F24F7B28275971CD00E4B221 /* DataModel.xcdatamodeld */,
+			);
+			path = CoreData;
 			sourceTree = "<group>";
 		};
 		F2FB08C627556D0B00683A15 /* Models */ = {
@@ -149,6 +163,7 @@
 		F2FD9DF6271E4BBB00D1F2E4 /* Rancher Pro */ = {
 			isa = PBXGroup;
 			children = (
+				F2FA469B27DFFE0A0014431F /* CoreData */,
 				F22A7197275AB1E300B828BE /* Ice Box */,
 				F24E7F4D2756CB1600CD0A5F /* Main Views */,
 				F24E7F492756CA5800CD0A5F /* Add Views */,
@@ -156,7 +171,6 @@
 				F2FB08C627556D0B00683A15 /* Models */,
 				F2FD9DFD271E4BBD00D1F2E4 /* Preview Content */,
 				F2FD9DFB271E4BBD00D1F2E4 /* Assets.xcassets */,
-				F24F7B28275971CD00E4B221 /* DataModel.xcdatamodeld */,
 			);
 			path = "Rancher Pro";
 			sourceTree = "<group>";
@@ -244,16 +258,18 @@
 				F24E7F3E2756947300CD0A5F /* RowView.swift in Sources */,
 				F2FB08CA27556D6500683A15 /* RanchManagerModel.swift in Sources */,
 				F2FB08CE27556DD100683A15 /* FarmModel.swift in Sources */,
-				F2FB08DB2755AA8200683A15 /* DetailView.swift in Sources */,
+				F2FB08DB2755AA8200683A15 /* AllFarmsView.swift in Sources */,
 				F2FB08D32755A54F00683A15 /* TaskModel.swift in Sources */,
 				F2FD9DFA271E4BBB00D1F2E4 /* HomeView.swift in Sources */,
 				F2FB08D72755A7F300683A15 /* HelperFunctions.swift in Sources */,
 				F24E7F442756CA0700CD0A5F /* AddHerdView.swift in Sources */,
+				F2FA469D27DFFE1D0014431F /* CoreDataManager.swift in Sources */,
 				F24E7F402756975200CD0A5F /* AddLivestockView.swift in Sources */,
 				F24E7F482756CA3000CD0A5F /* AddTaskView.swift in Sources */,
 				F2FB08CC27556DC500683A15 /* LivestockModel.swift in Sources */,
 				F2FB08C027554ED900683A15 /* ProfileView.swift in Sources */,
 				F2FB08C827556D2200683A15 /* RanchHandModel.swift in Sources */,
+				F2FA469A27DFFD920014431F /* LivestockDetailView.swift in Sources */,
 				F2FD9DF8271E4BBB00D1F2E4 /* Rancher_ProApp.swift in Sources */,
 				F24E7F462756CA1900CD0A5F /* AddFarmhandView.swift in Sources */,
 				F24E7F422756C9F800CD0A5F /* AddFarmView.swift in Sources */,

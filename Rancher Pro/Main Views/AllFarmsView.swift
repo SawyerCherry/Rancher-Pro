@@ -8,7 +8,7 @@
 import SwiftUI
 import CoreData
 
-struct DetailView: View {
+struct AllFarmsView: View {
     //    let farms = PersistenceController.shared.farms
     //    @FetchedResult() var farms
     
@@ -17,11 +17,11 @@ struct DetailView: View {
         animation: .default)
     
     private var items: FetchedResults<Farm>
+    let controller = PersistenceController.shared.container.viewContext
     
     var body: some View {
         NavigationView {
             List {
-                
                 ForEach(items){ farm in
                     VStack {
                         Text("Farm Name: \(farm.name!)")
@@ -31,15 +31,16 @@ struct DetailView: View {
                 }
             }
             .navigationTitle("Farm Details")
-            
         }
     }
+    
 }
 
 extension Farm {
     var getHerdsOnFarm: [Herd] {
         return herdsOnFarm!.allObjects as! [Herd]
     }
+    
 }
 
 extension Herd {
@@ -50,7 +51,6 @@ extension Herd {
 
 struct FarmDetailView: View {
     @ObservedObject var farm: Farm
-    
     var body: some View {
         
         List {
@@ -64,10 +64,10 @@ struct FarmDetailView: View {
         }
     }
 }
+
+
 struct HerdDetailView: View {
-    
     @ObservedObject var herd: Herd
-    
     var body: some View {
         List {
             ForEach(herd.getLivestockOnFarm) { livestock in
@@ -83,17 +83,6 @@ struct HerdDetailView: View {
     }
 }
 
-struct LivestockDetailView: View {
-    @ObservedObject var livestock: Livestock
-    
-    var body: some View {
-        List {
-            Text("Amount invested: $\(livestock.amountInvested)")
-            Text("Tag number: \(livestock.tagNumber!)")
-            Text("Species: \(livestock.species!)")
-            Text("Sex of animal: \(livestock.sex!)")
-            Text("Breed: \(livestock.breed!)")
-            Text("Birth Year: \(livestock.birthYear!)")
-        }
-    }
-}
+
+
+

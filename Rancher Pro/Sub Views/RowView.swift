@@ -17,10 +17,6 @@ struct RowView: View {
                 Spacer()
                 Image(systemName: "arrow.right")
             }
-    
-
-          
-
     }
 }
 

@@ -140,7 +140,6 @@ struct AddLivestockView: View {
                             
                     }.padding(.top, 150)
                         
-                    
                 }
                 
                 

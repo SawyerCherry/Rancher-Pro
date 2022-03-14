@@ -33,12 +33,6 @@ class AddViewModel: ObservableObject {
 struct AddView: View {
     //: MARK: - Properties
     
-    @State private var addLivestock: Bool = false
-    @State private var addHerd: Bool = false
-    @State private var addFarm: Bool = false
-    @State private var addHand: Bool = false
-    @State private var addTask: Bool = false
-    
     @StateObject var model = AddViewModel()
     
     var body: some View {
@@ -57,8 +51,9 @@ struct AddView: View {
                 // NavigationLink("Add Task", destination: AddTaskView())
                 
                 
-            }.navigationTitle("Add")
-                .foregroundColor(Color.primary)
+            }
+            .navigationTitle("Add")
+            .foregroundColor(Color.primary)
             
         }
         
