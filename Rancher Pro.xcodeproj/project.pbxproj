@@ -14,7 +14,6 @@
 		F24E7F462756CA1900CD0A5F /* AddFarmhandView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F24E7F452756CA1900CD0A5F /* AddFarmhandView.swift */; };
 		F24E7F482756CA3000CD0A5F /* AddTaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F24E7F472756CA3000CD0A5F /* AddTaskView.swift */; };
 		F24F7B2A275971CD00E4B221 /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F24F7B28275971CD00E4B221 /* DataModel.xcdatamodeld */; };
-		F2FA469A27DFFD920014431F /* LivestockDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FA469927DFFD910014431F /* LivestockDetailView.swift */; };
 		F2FA469D27DFFE1D0014431F /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FA469C27DFFE1D0014431F /* CoreDataManager.swift */; };
 		F2FA46A027E005830014431F /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FA469F27E005830014431F /* Extensions.swift */; };
 		F2FB08C027554ED900683A15 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FB08BF27554ED900683A15 /* ProfileView.swift */; };
@@ -41,7 +40,6 @@
 		F24E7F452756CA1900CD0A5F /* AddFarmhandView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFarmhandView.swift; sourceTree = "<group>"; };
 		F24E7F472756CA3000CD0A5F /* AddTaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTaskView.swift; sourceTree = "<group>"; };
 		F24F7B29275971CD00E4B221 /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
-		F2FA469927DFFD910014431F /* LivestockDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LivestockDetailView.swift; sourceTree = "<group>"; };
 		F2FA469C27DFFE1D0014431F /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		F2FA469F27E005830014431F /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		F2FB08BF27554ED900683A15 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
@@ -107,7 +105,6 @@
 			children = (
 				F2FB08DA2755AA8200683A15 /* AllFarmsView.swift */,
 				F2FB08D82755AA0200683A15 /* AddView.swift */,
-				F2FA469927DFFD910014431F /* LivestockDetailView.swift */,
 				F2FD9DF7271E4BBB00D1F2E4 /* Rancher_ProApp.swift */,
 			);
 			path = "Main Views";
@@ -269,7 +266,6 @@
 				F2FB08CC27556DC500683A15 /* LivestockModel.swift in Sources */,
 				F2FB08C027554ED900683A15 /* ProfileView.swift in Sources */,
 				F2FB08C827556D2200683A15 /* RanchHandModel.swift in Sources */,
-				F2FA469A27DFFD920014431F /* LivestockDetailView.swift in Sources */,
 				F2FD9DF8271E4BBB00D1F2E4 /* Rancher_ProApp.swift in Sources */,
 				F24E7F462756CA1900CD0A5F /* AddFarmhandView.swift in Sources */,
 				F24E7F422756C9F800CD0A5F /* AddFarmView.swift in Sources */,

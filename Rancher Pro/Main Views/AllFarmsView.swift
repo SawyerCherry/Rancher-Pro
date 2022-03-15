@@ -48,6 +48,8 @@ struct AllFarmsView: View {
 
 struct FarmDetailView: View {
     @ObservedObject var farm: Farm
+    @State var isShowingEditMode = false
+    
     var body: some View {
         
         List {
@@ -59,24 +61,66 @@ struct FarmDetailView: View {
                 }
             }
         }
+        .navigationBarItems(trailing: Button("Edit") {
+            isShowingEditMode = true
+        })
+        .sheet(isPresented: $isShowingEditMode, onDismiss: nil) {
+            EditFarmView(farm: farm)
+        }
+        .navigationTitle(farm.name!)
     }
 }
 
+
+
+struct EditFarmView: View {
+    @ObservedObject var farm: Farm
+    
+    var body: some View {
+        let textBindingFromFarm = Binding(
+            get: {
+                farm.name!
+            }, set: { newName in
+                farm.name = newName
+            }
+        )
+        let addressBindingFromFarm = Binding(
+            get: {
+                farm.address!
+            }, set: { newAddress in
+                farm.address = newAddress
+            }
+        )
+        VStack {
+            TextField("enter", text: textBindingFromFarm)
+            TextField("enter", text: addressBindingFromFarm)
+            Button("Save", action: save)
+        }
+    }
+    
+    func save() {
+        try! PersistenceController.shared.container.viewContext.save()
+        
+        // TODO: Dismiss myself
+    }
+}
 
 struct HerdDetailView: View {
     @ObservedObject var herd: Herd
     var body: some View {
         List {
             ForEach(herd.getLivestockOnFarm) { livestock in
-                VStack {
-                    HStack {
-                        Text("Livestock Species: \(livestock.species!)")
-                        Text("Tag Number: \(livestock.tagNumber!)")
-                    }
-                    NavigationLink("Livestock Details", destination: LivestockDetailView(livestock: livestock))
+                VStack(alignment: .leading) {
+                    Text("Amount invested: $\(livestock.amountInvested)")
+                    Text("Tag number: \(livestock.tagNumber!)")
+                    Text("Species: \(livestock.species!)")
+                    Text("Sex of animal: \(livestock.sex!)")
+                    Text("Breed: \(livestock.breed!)")
+                    Text("Birth Year: \(livestock.birthYear!)")
+
                 }
             }
-        }
+        }.navigationTitle("Animals in \(herd.name!)")
     }
 }
 
