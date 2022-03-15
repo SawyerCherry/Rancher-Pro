@@ -25,7 +25,7 @@ struct AddHerdView: View {
     @State var selectedFarm: Farm!
     
     var body: some View {
-        NavigationView {
+        
             VStack {
                 VStack(alignment: .leading, spacing: 10) {
                     
@@ -73,7 +73,7 @@ struct AddHerdView: View {
             }
             .padding()
             
-        }
+        
         
         .onAppear {
             let firstFarm = PersistenceController.shared.firstFarms()!

@@ -15,7 +15,7 @@ struct AddFarmView: View {
     
     
     var body: some View {
-        NavigationView {
+       
             
             VStack {
                 VStack(alignment: .leading, spacing: 10) {
@@ -62,7 +62,7 @@ struct AddFarmView: View {
             
         
         
-        }
+        
     }
     
 

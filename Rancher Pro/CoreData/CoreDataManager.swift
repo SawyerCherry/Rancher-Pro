@@ -103,10 +103,34 @@ struct PersistenceController {
         }
     }
     
-    private func deleteFarm(farm: Farm, herd: Herd, livestock: Livestock) {
+    func deleteFarm(farm: Farm) {
+    
         container.viewContext.delete(farm)
+        do {
+            try container.viewContext.save()
+        } catch {
+            container.viewContext.rollback()
+            let nsError = error as NSError
+            fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
+        }
+    }
+    
+    func deleteHerd(herd: Herd, livestock: Livestock) {
         container.viewContext.delete(herd)
-        container.viewContext.delete(herd)
+        container.viewContext.delete(livestock)
+        
+        do {
+            try container.viewContext.save()
+        } catch {
+            container.viewContext.rollback()
+            let nsError = error as NSError
+            fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
+        }
+    }
+    
+    func deleteLivestock(livestock: Livestock) {
+        container.viewContext.delete(livestock)
+        
         do {
             try container.viewContext.save()
         } catch {

@@ -16,38 +16,35 @@ struct AllFarmsView: View {
         sortDescriptors: [NSSortDescriptor(keyPath: \Farm.name, ascending: false)],
         animation: .default)
     
-    private var items: FetchedResults<Farm>
+    private var farms: FetchedResults<Farm>
     let controller = PersistenceController.shared.container.viewContext
     
     var body: some View {
         NavigationView {
             List {
-                ForEach(items){ farm in
+                ForEach(farms){ farm in
                     VStack {
                         Text("Farm Name: \(farm.name!)")
                         Text("Number of herds: \(farm.getHerdsOnFarm.count)")
                         NavigationLink("Details", destination: FarmDetailView(farm: farm))
                     }
                 }
+                .onDelete(perform: { indexSet in
+                    indexSet.forEach { index in
+                        let farm = farms[index]
+                        PersistenceController.shared.deleteFarm(farm: farm)
+                    }
+                    
+                })
             }
             .navigationTitle("Farm Details")
         }
     }
     
-}
-
-extension Farm {
-    var getHerdsOnFarm: [Herd] {
-        return herdsOnFarm!.allObjects as! [Herd]
-    }
     
 }
 
-extension Herd {
-    var getLivestockOnFarm: [Livestock] {
-        return livestockInHerd!.allObjects as! [Livestock]
-    }
-}
+
 
 struct FarmDetailView: View {
     @ObservedObject var farm: Farm

@@ -6,3 +6,16 @@
 //
 
 import Foundation
+
+extension Farm {
+    var getHerdsOnFarm: [Herd] {
+        return herdsOnFarm!.allObjects as! [Herd]
+    }
+    
+}
+
+extension Herd {
+    var getLivestockOnFarm: [Livestock] {
+        return livestockInHerd!.allObjects as! [Livestock]
+    }
+}

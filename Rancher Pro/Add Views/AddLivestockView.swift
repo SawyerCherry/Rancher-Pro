@@ -30,7 +30,7 @@ struct AddLivestockView: View {
     @State var selectedHerd: Herd!
     
     var body: some View {
-        NavigationView {
+        
             VStack {
                 HStack {
                     Text("Add to herd:")
@@ -144,7 +144,7 @@ struct AddLivestockView: View {
                 
                 
             }.navigationTitle("Add Livestock")
-        }
+        
     
         .onAppear {
             let firstHerd = PersistenceController.shared.firstHerds()!
