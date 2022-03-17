@@ -115,9 +115,8 @@ struct PersistenceController {
         }
     }
     
-    func deleteHerd(herd: Herd, livestock: Livestock) {
+    func deleteHerd(herd: Herd) {
         container.viewContext.delete(herd)
-        container.viewContext.delete(livestock)
         
         do {
             try container.viewContext.save()
@@ -130,7 +129,6 @@ struct PersistenceController {
     
     func deleteLivestock(livestock: Livestock) {
         container.viewContext.delete(livestock)
-        
         do {
             try container.viewContext.save()
         } catch {

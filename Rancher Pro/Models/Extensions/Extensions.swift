@@ -9,13 +9,21 @@ import Foundation
 
 extension Farm {
     var getHerdsOnFarm: [Herd] {
-        return herdsOnFarm!.allObjects as! [Herd]
+        
+        guard let herdsOnFarm = herdsOnFarm else {
+            return []
+        }
+        return herdsOnFarm.allObjects as! [Herd]
     }
     
 }
 
 extension Herd {
     var getLivestockOnFarm: [Livestock] {
-        return livestockInHerd!.allObjects as! [Livestock]
+        
+        guard let livestockInHerd = livestockInHerd else {
+            return []
+        }
+        return livestockInHerd.allObjects as! [Livestock]
     }
 }

@@ -24,20 +24,26 @@ struct AllFarmsView: View {
             List {
                 ForEach(farms){ farm in
                     VStack {
-                        Text("Farm Name: \(farm.name!)")
-                        Text("Number of herds: \(farm.getHerdsOnFarm.count)")
-                        NavigationLink("Details", destination: FarmDetailView(farm: farm))
+                        FarmCard(farm: farm, farmTitle: farm.name!, numOfHerds: farm.getHerdsOnFarm.count, farmLocation: farm.address!)
+                        NavigationLink("Farm Details", destination: FarmDetailView(farm: farm))
+                            .font(.title3)
+                            .padding(.bottom)
                     }
+                    .padding()
+                    .background(Color("saddleBrown"))
+                    .cornerRadius(15)
+                    .padding(.vertical)
+                    
+                    
                 }
                 .onDelete(perform: { indexSet in
                     indexSet.forEach { index in
                         let farm = farms[index]
                         PersistenceController.shared.deleteFarm(farm: farm)
                     }
-                    
                 })
             }
-            .navigationTitle("Farm Details")
+            .navigationTitle("My Farms")
         }
     }
     
@@ -60,6 +66,12 @@ struct FarmDetailView: View {
                     NavigationLink("Herd Details", destination: HerdDetailView(herd: herd))
                 }
             }
+            .onDelete(perform: { indexSet in
+                indexSet.forEach { index in
+                    let herdToDelete = farm.getHerdsOnFarm[index]
+                    PersistenceController.shared.deleteHerd(herd: herdToDelete)
+                }
+            })
         }
         .navigationBarItems(trailing: Button("Edit") {
             isShowingEditMode = true
@@ -67,43 +79,12 @@ struct FarmDetailView: View {
         .sheet(isPresented: $isShowingEditMode, onDismiss: nil) {
             EditFarmView(farm: farm)
         }
-        .navigationTitle(farm.name!)
+        .navigationTitle("My Farm")
     }
 }
 
 
 
-struct EditFarmView: View {
-    @ObservedObject var farm: Farm
-    
-    var body: some View {
-        let textBindingFromFarm = Binding(
-            get: {
-                farm.name!
-            }, set: { newName in
-                farm.name = newName
-            }
-        )
-        let addressBindingFromFarm = Binding(
-            get: {
-                farm.address!
-            }, set: { newAddress in
-                farm.address = newAddress
-            }
-        )
-        VStack {
-            TextField("enter", text: textBindingFromFarm)
-            TextField("enter", text: addressBindingFromFarm)
-            Button("Save", action: save)
-        }
-    }
-    
-    func save() {
-        try! PersistenceController.shared.container.viewContext.save()
-        
-        // TODO: Dismiss myself
-    }
-}
 
 struct HerdDetailView: View {
     @ObservedObject var herd: Herd
@@ -117,9 +98,15 @@ struct HerdDetailView: View {
                     Text("Sex of animal: \(livestock.sex!)")
                     Text("Breed: \(livestock.breed!)")
                     Text("Birth Year: \(livestock.birthYear!)")
-
+                    
                 }
             }
+            .onDelete(perform: { indexSet in
+                indexSet.forEach { index in
+                    let animal = herd.getLivestockOnFarm[index]
+                    PersistenceController.shared.deleteLivestock(livestock: animal)
+                }
+            })
         }.navigationTitle("Animals in \(herd.name!)")
     }
 }

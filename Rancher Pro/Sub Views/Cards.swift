@@ -8,117 +8,54 @@
 import SwiftUI
 
 struct FarmCard: View {
-    
     //: MARK: - Properties
-    
- 
-    var farmName: String
+    var farm: Farm
+    var farmTitle: String
+    var numOfHerds: Int
+    var farmLocation: String
     var body: some View {
         VStack(alignment: .leading) {
-            Text("Farms")
-                .font(.system(size: 25))
-                .padding(.top)
-                .padding(.horizontal)
             
-            Divider()
-                .padding(.horizontal)
-                .foregroundColor(.black)
-             
+            HStack {
+                Text(farmTitle)
+                    .font(.system(size: 25, weight: .semibold))
+                    .padding(.top)
+                    .padding(.horizontal)
+                Spacer()
+                Image("bern")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 100, height: 100)
+            }
+            
             
             HStack() {
                 VStack(alignment: .leading) {
-                    Text("Farm Name: \(farmName)")
+                    
+                    Text("Location: \(farmLocation)")
+                        .font(.system(size: 20))
+                        .padding(.bottom)
+                    Text("Number of Herds: \(numOfHerds)")
                         .font(.system(size: 20))
                         .padding(.bottom)
                 }
-            }.padding(.horizontal)
+                
+            }
         }
         .background(Color.brown)
         .cornerRadius(12)
         .padding(.horizontal)
+        
     }
 }
 
 struct FarmCard_Previews: PreviewProvider {
     static var previews: some View {
-        FarmCard(farmName: "Dutton Ranch")
+        FarmCard(farm: Farm(), farmTitle: "Sawyer's Farm", numOfHerds: 2, farmLocation: "Whitleyville, TN")
     }
 }
 
 
-struct LivestockCard: View {
-    
-    //: MARK: - Properties
-    
-    var cowCount: Int
-    
-    
-    var body: some View {
-        VStack(alignment: .leading) {
-            Text("Livestock")
-                .font(.system(size: 25))
-                .padding(.top)
-                .padding(.horizontal)
-            
-            Divider()
-                .padding(.horizontal)
-                .foregroundColor(.black)
-             
-            
-            HStack() {
-                Text("Cows: \(cowCount)")
-                    .font(.system(size: 20))
-                    .padding(.bottom)
-                
-            }.padding(.horizontal)
-        }
-        .background(Color.brown)
-        .cornerRadius(12)
-        .padding(.horizontal)
-    }
-}
 
-struct LivestockCard_Previews: PreviewProvider {
-    static var previews: some View {
-        LivestockCard(cowCount: 1)
-    }
-}
-
-
-struct RanchHandCard: View {
-    
-    //: MARK: - Properties
-    
-    var hands: RanchHand
-    
-    
-    
-    var body: some View {
-        VStack(alignment: .leading) {
-            Text("Names of Ranch Hands")
-                .font(.system(size: 25))
-                .padding(.top)
-                .padding(.horizontal)
-            
-            Divider()
-                .padding(.horizontal)
-                .foregroundColor(.black)
-             
-            
-            HStack() {
-//                ForEach(hands.name.count) { hand in
-//                    Text(hand)
-//                        .font(.system(size: 20))
-//                        .padding(.bottom)
-//                }
-                
-                
-            }.padding(.horizontal)
-        }
-        .background(Color.brown)
-        .cornerRadius(12)
-        .padding(.horizontal)
-    }
-}
 
 
