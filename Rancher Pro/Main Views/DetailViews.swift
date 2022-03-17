@@ -73,13 +73,13 @@ struct FarmDetailView: View {
                 }
             })
         }
-        .navigationBarItems(trailing: Button("Edit") {
+        .navigationBarItems(trailing: Button("Edit Farm Details") {
             isShowingEditMode = true
         })
         .sheet(isPresented: $isShowingEditMode, onDismiss: nil) {
             EditFarmView(farm: farm)
         }
-        .navigationTitle("My Farm")
+        .navigationTitle("Farm Details")
     }
 }
 
@@ -88,11 +88,12 @@ struct FarmDetailView: View {
 
 struct HerdDetailView: View {
     @ObservedObject var herd: Herd
+    @State private var isShowingEditMode: Bool = false
     var body: some View {
         List {
             ForEach(herd.getLivestockOnFarm) { livestock in
                 VStack(alignment: .leading) {
-                    Text("Amount invested: $\(livestock.amountInvested)")
+                    Text("Amount invested: $\(livestock.amountInvested, specifier: "%.2f")")
                     Text("Tag number: \(livestock.tagNumber!)")
                     Text("Species: \(livestock.species!)")
                     Text("Sex of animal: \(livestock.sex!)")
@@ -107,7 +108,14 @@ struct HerdDetailView: View {
                     PersistenceController.shared.deleteLivestock(livestock: animal)
                 }
             })
-        }.navigationTitle("Animals in \(herd.name!)")
+        }
+        .navigationBarItems(trailing: Button("Edit Herd Details") {
+            isShowingEditMode = true
+        })
+        .sheet(isPresented: $isShowingEditMode, onDismiss: nil) {
+            EditHerdView(herd: herd)
+        }
+        .navigationTitle("Animals in Herd")
     }
 }
 

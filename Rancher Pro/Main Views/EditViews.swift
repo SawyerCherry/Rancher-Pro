@@ -26,11 +26,14 @@ struct EditFarmView: View {
                 farm.address = newAddress
             }
         )
-        VStack {
-            TextField("enter", text: textBindingFromFarm)
-            TextField("enter", text: addressBindingFromFarm)
-            Button("Save", action: save)
+        Form {
+            VStack {
+                TextField("Farm Name", text: textBindingFromFarm)
+                TextField("Farm Address", text: addressBindingFromFarm)
+                Button("Save", action: save)
+            }
         }
+        
     }
 
     func save() {
@@ -42,6 +45,36 @@ struct EditFarmView: View {
 
 
 struct EditHerdView: View {
+    @ObservedObject var herd: Herd
+
+    @Environment(\.presentationMode) var presentationMode
+
+    var body: some View {
+        let nameBindingFromHerd = Binding(
+            get: {
+                herd.name!
+            }, set: { newName in
+                herd.name = newName
+            }
+        )
+        Form {
+            VStack {
+                TextField("change herd name", text: nameBindingFromHerd)
+                Button("Save", action: save)
+            }
+        }
+
+    }
+
+    func save() {
+        try! PersistenceController.shared.container.viewContext.save()
+
+        presentationMode.wrappedValue.dismiss()
+    }
+}
+
+
+struct EditLivestockView: View {
     @ObservedObject var herd: Herd
 
     @Environment(\.presentationMode) var presentationMode
