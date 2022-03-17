@@ -22,12 +22,11 @@ struct FarmCard: View {
                     .padding(.top)
                     .padding(.horizontal)
                 Spacer()
-                Image("bern")
+                Image("barn")
                     .resizable()
                     .scaledToFit()
                     .frame(width: 100, height: 100)
             }
-            
             
             HStack() {
                 VStack(alignment: .leading) {
@@ -42,20 +41,38 @@ struct FarmCard: View {
                 
             }
         }
-        .background(Color.brown)
-        .cornerRadius(12)
-        .padding(.horizontal)
-        
     }
 }
 
-struct FarmCard_Previews: PreviewProvider {
+struct HerdCard: View {
+    var herdName: String
+    var countInHerd: Int
+    var body: some View {
+        VStack {
+            HStack {
+                Text(herdName)
+                    .font(.system(size: 25, weight: .semibold))
+                    .padding(.top)
+                    .padding(.horizontal)
+                Spacer()
+                Image("herd")
+                    .resizable()
+                    .scaledToFit()
+                    .symbolRenderingMode(.palette)
+                    .foregroundStyle(.black)
+                    .foregroundColor(.black)
+                    .frame(width: 100, height: 100)
+                    .padding(.trailing)
+            }
+            Text("Livestock Count in Herd: \(countInHerd)")
+                .font(.system(size: 20))
+                .padding(.bottom)
+        }
+    }
+}
+
+struct HerdCard_Previews: PreviewProvider {
     static var previews: some View {
-        FarmCard(farm: Farm(), farmTitle: "Sawyer's Farm", numOfHerds: 2, farmLocation: "Whitleyville, TN")
+        HerdCard(herdName: "Wild Cows Herd", countInHerd: 3)
     }
 }
-
-
-
-
-

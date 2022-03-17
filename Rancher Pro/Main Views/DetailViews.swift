@@ -19,71 +19,34 @@ struct AllFarmsView: View {
     private var farms: FetchedResults<Farm>
     let controller = PersistenceController.shared.container.viewContext
     
-    var body: some View {
-        NavigationView {
-            List {
-                ForEach(farms){ farm in
-                    VStack {
-                        FarmCard(farm: farm, farmTitle: farm.name!, numOfHerds: farm.getHerdsOnFarm.count, farmLocation: farm.address!)
-                        NavigationLink("Farm Details", destination: FarmDetailView(farm: farm))
-                            .font(.title3)
-                            .padding(.bottom)
-                    }
-                    .padding()
-                    .background(Color("saddleBrown"))
-                    .cornerRadius(15)
-                    .padding(.vertical)
-                    
-                    
-                }
-                .onDelete(perform: { indexSet in
-                    indexSet.forEach { index in
-                        let farm = farms[index]
-                        PersistenceController.shared.deleteFarm(farm: farm)
-                    }
-                })
-            }
-            .navigationTitle("My Farms")
-        }
-    }
-    
-    
-}
-
-
-
-struct FarmDetailView: View {
-    @ObservedObject var farm: Farm
     @State var isShowingEditMode = false
     
     var body: some View {
         
-        List {
-            ForEach(farm.getHerdsOnFarm){ herd in
-                VStack {
-                    Text("Herd Name: \(herd.name!)")
-                    Text("Livestock count in Herd: \(herd.getLivestockOnFarm.count)")
-                    NavigationLink("Herd Details", destination: HerdDetailView(herd: herd))
+        NavigationView {
+            List {
+                ForEach(farms){ farm in
+                    FarmRowView(farm: farm)
                 }
-            }
-            .onDelete(perform: { indexSet in
-                indexSet.forEach { index in
-                    let herdToDelete = farm.getHerdsOnFarm[index]
-                    PersistenceController.shared.deleteHerd(herd: herdToDelete)
-                }
-            })
+            }.navigationTitle("My Farms")
         }
-        .navigationBarItems(trailing: Button("Edit Farm Details") {
-            isShowingEditMode = true
-        })
-        .sheet(isPresented: $isShowingEditMode, onDismiss: nil) {
-            EditFarmView(farm: farm)
-        }
-        .navigationTitle("Farm Details")
     }
 }
 
-
+struct FarmDetailView: View {
+    @ObservedObject var farm: Farm
+    @State var isShowingEditMode = false
+    var body: some View {
+       
+        List {
+            ForEach(farm.getHerdsOnFarm) { herd in
+                HerdRowViews(herd: herd)
+            }
+                
+        }.navigationTitle("My Farms")
+    }
+    
+}
 
 
 struct HerdDetailView: View {

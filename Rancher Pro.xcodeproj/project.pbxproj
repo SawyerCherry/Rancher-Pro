@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		F220041527E2C84A00F11533 /* EditViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = F220041427E2C84A00F11533 /* EditViews.swift */; };
-		F24E7F3E2756947300CD0A5F /* RowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F24E7F3D2756947300CD0A5F /* RowView.swift */; };
+		F24E7F3E2756947300CD0A5F /* RowViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = F24E7F3D2756947300CD0A5F /* RowViews.swift */; };
 		F24E7F402756975200CD0A5F /* AddLivestockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F24E7F3F2756975200CD0A5F /* AddLivestockView.swift */; };
 		F24E7F422756C9F800CD0A5F /* AddFarmView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F24E7F412756C9F700CD0A5F /* AddFarmView.swift */; };
 		F24E7F442756CA0700CD0A5F /* AddHerdView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F24E7F432756CA0700CD0A5F /* AddHerdView.swift */; };
@@ -31,7 +31,7 @@
 
 /* Begin PBXFileReference section */
 		F220041427E2C84A00F11533 /* EditViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditViews.swift; sourceTree = "<group>"; };
-		F24E7F3D2756947300CD0A5F /* RowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RowView.swift; sourceTree = "<group>"; };
+		F24E7F3D2756947300CD0A5F /* RowViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RowViews.swift; sourceTree = "<group>"; };
 		F24E7F3F2756975200CD0A5F /* AddLivestockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLivestockView.swift; sourceTree = "<group>"; };
 		F24E7F412756C9F700CD0A5F /* AddFarmView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFarmView.swift; sourceTree = "<group>"; };
 		F24E7F432756CA0700CD0A5F /* AddHerdView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddHerdView.swift; sourceTree = "<group>"; };
@@ -77,7 +77,7 @@
 		F24E7F4A2756CAAB00CD0A5F /* Sub Views */ = {
 			isa = PBXGroup;
 			children = (
-				F24E7F3D2756947300CD0A5F /* RowView.swift */,
+				F24E7F3D2756947300CD0A5F /* RowViews.swift */,
 				F2FB08C42755656000683A15 /* Cards.swift */,
 			);
 			path = "Sub Views";
@@ -235,7 +235,7 @@
 			files = (
 				F2FB08D92755AA0200683A15 /* AddView.swift in Sources */,
 				F24F7B2A275971CD00E4B221 /* DataModel.xcdatamodeld in Sources */,
-				F24E7F3E2756947300CD0A5F /* RowView.swift in Sources */,
+				F24E7F3E2756947300CD0A5F /* RowViews.swift in Sources */,
 				F2FB08CA27556D6500683A15 /* RanchManagerModel.swift in Sources */,
 				F2FB08CE27556DD100683A15 /* FarmModel.swift in Sources */,
 				F2FB08DB2755AA8200683A15 /* DetailViews.swift in Sources */,

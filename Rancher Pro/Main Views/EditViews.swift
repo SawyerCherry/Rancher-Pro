@@ -45,10 +45,8 @@ struct EditFarmView: View {
 
 
 struct EditHerdView: View {
-    @ObservedObject var herd: Herd
-
+    @ObservedObject var herd = Herd()
     @Environment(\.presentationMode) var presentationMode
-
     var body: some View {
         let nameBindingFromHerd = Binding(
             get: {
@@ -68,7 +66,6 @@ struct EditHerdView: View {
 
     func save() {
         try! PersistenceController.shared.container.viewContext.save()
-
         presentationMode.wrappedValue.dismiss()
     }
 }
@@ -98,7 +95,6 @@ struct EditLivestockView: View {
 
     func save() {
         try! PersistenceController.shared.container.viewContext.save()
-
         presentationMode.wrappedValue.dismiss()
     }
 }
