@@ -44,7 +44,7 @@ struct FarmRowView: View {
 }
 
 
-struct HerdRowViews: View {
+struct HerdRowView: View {
     
     @State private var isShowingEditMode: Bool = false
     var herd: Herd
@@ -80,7 +80,28 @@ struct HerdRowViews: View {
 
 
 struct LivestockRowView: View {
+    @State private var isShowingEditMode: Bool = false
+    var livestock: Livestock
     var body: some View {
-        Text("hehehe")
+        VStack {
+            LivestockCard(amntInvested: livestock.amountInvested, tagNumber: livestock.tagNumber!, species: livestock.species!, sex: livestock.sex!, breed: livestock.breed!, brthYear: livestock.birthYear!)
+        }
+        .swipeActions {
+            Button(role: .destructive) {
+                PersistenceController.shared.deleteLivestock(livestock: livestock)
+            } label: {
+                Label("Delete", systemImage: "trash.circle.fill")
+            }
+            
+            Button {
+                isShowingEditMode = true
+            } label:  {
+                Label("Edit", systemImage: "pencil.circle.fill")
+            }
+            .tint(.orange)
+        }
+        .sheet(isPresented: $isShowingEditMode) {
+            EditLivestockView(livestock: livestock)
+        }
     }
 }

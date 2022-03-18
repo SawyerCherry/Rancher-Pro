@@ -38,7 +38,6 @@ struct FarmCard: View {
                         .font(.system(size: 20))
                         .padding(.bottom)
                 }
-                
             }
         }
     }
@@ -76,3 +75,51 @@ struct HerdCard_Previews: PreviewProvider {
         HerdCard(herdName: "Wild Cows Herd", countInHerd: 3)
     }
 }
+
+
+struct LivestockCard: View {
+    
+    var amntInvested: Double = 0.00
+    var tagNumber: String = ""
+    var species: String = ""
+    var sex: String = ""
+    var breed: String = ""
+    var brthYear: String = ""
+    var body: some View {
+        
+        HStack {
+            VStack(alignment: .leading) {
+                Text("Amount invested: $\(amntInvested, specifier: "%.2f")")
+                    .foregroundColor(.black)
+                    .fontWeight(.semibold)
+                Text("Tag number: \(tagNumber)")
+                    .foregroundColor(.black)
+                    .fontWeight(.semibold)
+                Text("Species: \(species)")
+                    .foregroundColor(.black)
+                    .fontWeight(.semibold)
+                Text("Sex of animal: \(sex)")
+                    .foregroundColor(.black)
+                    .fontWeight(.semibold)
+                Text("Breed: \(breed)")
+                    .foregroundColor(.black)
+                    .fontWeight(.semibold)
+                Text("Birth Year: \(brthYear)")
+                    .foregroundColor(.black)
+                    .fontWeight(.semibold)
+            }
+            Spacer()
+            
+            Image("livestock")
+                .resizable().scaledToFit()
+                .frame(width: 100, height: 100)
+        }.padding(.horizontal)
+    }
+}
+
+struct LivestockCard_Previews: PreviewProvider {
+    static var previews: some View {
+        LivestockCard()
+    }
+}
+
